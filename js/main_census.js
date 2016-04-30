@@ -11,6 +11,7 @@ var margin = {
     left: 60
 };
 
+
 var width = 1000 - margin.left - margin.right,
     height = 800 - margin.top - margin.bottom;
 
@@ -33,6 +34,10 @@ var green;
 var color = d3.scale.quantize()
     .domain([0, 0.0005, 0.001,0.02,0.04, 0.05, 0.06, 0.1,0.11,0.12, 0.13])
     .range(["#d9f0a3","#addd8e", "#78c679", "#41ab5d", "#238443", "#006837"
+    ]);
+
+var color1 = d3.scale.quantize()
+    .range(["#fc4e2a","#e31a1c", "#bd0026", "#800026"
     ]);
 
 
@@ -58,12 +63,15 @@ function update_vis(){
     })]);
 
     for (var i = 0; i < green.length; i++) {
+
+        green[i].Diabetes = green[i].Diabetes/100;
         var census_id = parseFloat(green[i].NAME10);
         var census_value = parseFloat(green[i][selectValue]);
         for (var j = 0; j < data.length; j++) {
             var json_census_id = parseFloat(data[j].properties.NAME10);
             if (census_id == json_census_id) {
                 data[j].properties.value = census_value;
+                data[j].properties.Diabetes = parseFloat(green[i].Diabetes);
                 break;
             }
         }
@@ -84,10 +92,13 @@ function update_vis(){
         .style("fill", function(d) {
             //Get data value
             var value = d.properties.value;
-            value1 = value;
-            if (value) {
+            if (d.properties.value != d.properties.Diabetes){
                 //If value exists…
                 return color(value);
+            }
+            if(d.properties.value == d.properties.Diabetes){
+                //If value exists…
+                return color1(value);
             }
             else {
                 //If value is undefined…
@@ -100,7 +111,13 @@ function update_vis(){
     // Tooltip setup
     var tip = d3.tip().attr('class', 'd3-tip').html(function(d){
         console.log(d)
-        return "<b>"+ "Green:" + formatnumber(d.properties.value);
+        if(d.properties.value != d.properties.Diabetes){
+            return "<b>"+ "Green:" + formatnumber(d.properties.value);
+        }
+        else{
+            return "<b>"+ "Diabetes Prevalence:" + formatnumber(d.properties.value);
+        }
+
     });
 
     map.call(tip);
