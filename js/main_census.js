@@ -67,7 +67,7 @@ function update_vis(){
 
         var census_id = parseFloat(green[i].NAME10);
         var census_value = parseFloat(green[i][selectValue]);
-        green[i].Diabetes = green[i].Diabetes/100;
+        green[i].Diabetes = green[i].Diabetes;
         for (var j = 0; j < data.length; j++) {
             var json_census_id = parseFloat(data[j].properties.NAME10);
             if (census_id == json_census_id) {
