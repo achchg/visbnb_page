@@ -72,7 +72,7 @@ function update_vis(){
             var json_census_id = parseFloat(data[j].properties.NAME10);
             if (census_id == json_census_id) {
                 data[j].properties.value = census_value;
-                data[j].properties.Diabetes = parseFloat(green[i].Diabetes/100);
+                data[j].properties.Diabetes = parseFloat(green[i].Diabetes);
                 break;
             }
         }
