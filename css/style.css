@@ -1,0 +1,53 @@
+
+/* YOUR CSS STYLES */
+
+h1{
+    font: 52px Palatino Linotype;
+}
+h3{
+    font: 24px Palatino Linotype;
+}
+p{
+    font: 18px Palatino Linotype;
+    line-height:150%
+}
+.text1{
+    font: 16px Arial;
+
+}
+
+form {
+    width: 80%;
+    margin: 0 auto;
+}
+
+path{
+stroke:white;
+stroke-width: 1px;
+}
+
+#ranking-type{
+    width: 268px;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border-radius: 0;
+    height: 34px;
+    background-color: transparent;
+    color: #000;
+}
+
+
+/* vis1 1*/
+.d3-tip {
+    line-height: 1;
+    font: 16px Arial;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 5px;
+}
+#footnote,h4{
+    font-weight: bolder;
+    font: 18px Arial Black;
+}
