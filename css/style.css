@@ -1,36 +1,352 @@
+/* color sheet:
+yellow:#FDB927
+blue:#006BB6
+black:#26282A
 
-/* YOUR CSS STYLES */
 
-h1{
-    font: 52px Palatino Linotype;
-}
-h3{
-    font: 24px Palatino Linotype;
-}
-p{
-    font: 18px Palatino Linotype;
-    line-height:150%
-}
-.text1{
-    font: 16px Arial;
+for player comparison:
 
-}
+light blue:#41B6C4
+light green:#A1DAB4
 
-form {
-    width: 80%;
-    margin: 0 auto;
+dark red:#F03B20
+light orange #FD8D3C:
+*/
+/*overall*/
+/*
+body{
+    background-color: #000;
 }
-
-path{
-stroke:white;
-stroke-width: 1px;
+*/
+h1,h2,h3,h4,h5,title{
+    font-family: "AtlasGroteskWeb","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+h6{
+    font-family: "Palatino Linotype";
+    font-size: 16px;
+    text-align: justify;
+    color: dimgray;
 }
 
-#ranking-type{
+
+#story_start_text, #story_team{
+    height:180px;
+    width:900px;
+}
+
+/* navbar */
+.navbar .navbar-right{
+    background-color: rgba(247,247,247,0.4); /* #f7f7f7*/
+    text-shadow:none;
+    font-family: Roboto,sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+
+}
+
+.navbar-brand{
+    position: relative;
+}
+
+
+.navbar-brand h1{
+    position: relative;
+    top:-28px;
+    font-weight: 900;
+}
+
+.navbar .navbar-right ul li a{
+    color:#006BB6;
+}
+
+.navbar .navbar-right ul li a:hover{
+    background-color: rgba(247,247,247,0.5);
+}
+
+.top-nav-collapse{
+    background-color:#006BB6 ;
+}
+.top-nav-collapse .navbar-right{
+    background-color:#006BB6 ;
+}
+.top-nav-collapse .navbar-right ul li a{
+    color: #ffffff;
+}
+
+.top-nav-collapse .navbar-right ul li a:hover{
+    background-color: #0087EE;
+}
+.top-nav-collapse .navbar-right ul li a:active{
+    background-color: #0087EE;
+}
+.top-nav-collapse .navbar-right ul li a:visited{
+    background-color: #0087EE;
+}
+.top-nav-collapse .navbar-brand h1{
+    color:#ffffff ;
+}
+/* section */
+section{
+    margin:0 50px 0 0;
+    padding-top:50px;
+}
+
+
+
+
+/* intro */
+
+.intro {
+    width:100%;
+    position:relative;
+    background: url(../img/bg1.png) no-repeat top center;
+}
+
+#intro.intro {
+    height:1080px;
+    padding:20% 0 0 0;
+}
+
+.intro .slogan {
+    text-align: center;
+
+}
+
+.intro .page-scroll {
+    text-align: center;
+}
+
+.brand-heading {
+    font-size: 40px;
+}
+
+.intro-text {
+    font-size: 18px;
+}
+
+.intro .slogan h2 {
+    color: #FFF;
+    text-shadow: none;
+    font-size: 60px;
+    line-height: 60px;
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+    text-transform: uppercase;
+    border-width: 0px;
+    border-color: #000;
+    border-style: none;
+    text-shadow: -1px 0 1px #000;
+}
+
+.intro .slogan h4 {
+    color: #fff;
+    text-shadow: -1px 1px 1px #000;
+}
+
+div.page-scroll{
+    text-align: center;
+}
+
+a.section-page-scroll{
+    color: #006BB6;
+    text-shadow: none;
+    font-size: 60px;
+    line-height: 60px;
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+    text-transform: uppercase;
+    border-width: 0px;
+    border-color: #000;
+    border-style: none;
+}
+#page-scroll-intro span{
+    color: #FFFFFF;
+}
+#page-scroll-intro span:hover{
+    cursor:pointer;
+}
+.section-head{
+    text-align: center;
+}
+.section-head h3{
+    color: black;
+    text-shadow: none;
+    font-size: 42px;
+    line-height: 42px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+}
+
+.placeholder-div{
+    text-align: center;
+}
+
+.glyphicon-menu-down,.glyphicon-menu-up{
+    color:white;
+    text-shadow: 1px 0.5px #006BB6;
+}
+.glyphicon-collapse-down{
+    color:#006BB6;
+    font-size:40px;
+    left:45%;
+}
+
+
+
+/* chart*/
+.chart-container{
+    text-align: center;
+}
+
+/*timeline*/
+#timeline-label, #timeline-label1{
+    color:black;
+}
+#team-timeline-chart{
+    text-align: center;
+}
+.slider.slider-horizontal{
+    width:500px;
+}
+
+
+.match-button {
+    width:40px;
+    height:40px;
+    border-radius:100%;
+    color:#FFFFFF;
+    font-family:'Roboto',sans-serif ;
+    font-weight:bold;
+    text-align: center;
+}
+button.disabled {
+    width:40px;
+    height:40px;
+    border-radius:100%;
+    background-color: #333;
+    color:#FFFFFF;
+    font-family:'Roboto',sans-serif ;
+    font-weight:bold;
+    text-align: center;
+}
+
+#match-overall{
+    text-align: center;
+    background-color: #FDB927;
+}
+
+/* team titles */
+
+.team-title{
+    font-size: 24px;
+    font-weight: 600;
+
+}
+#team1-title{
+    color:#006BB6;
+}
+
+.team-img{
+    width:165px;
+    height:auto;
+}
+/*
+.team-score{
+    font-family: 'Oswald', sans-serif;
+    font-size:72px;
+    display: none;
+}
+*/
+.donut-title{
+    color:#006BB6;
+    font-weight:bold;
+}
+
+.score-text{
+    font-family: 'Oswald', sans-serif;
+    font-size:50px;
+}
+
+#stat-title{
+    margin-top:5px;
+    margin-bottom:5px;
+    /*font-family: 'Oswald', sans-serif;*/
+    color:black;
+    font-weight:bold;
+    font-size:32px;
+}
+
+/* shooting chart */
+.axis text {
+    font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.hexagon {
+    fill: none;
+    stroke: #000;
+    stroke-width: 0.5px;
+}
+
+#player-shooting-chart{
+    left:300px;
+    position: relative;
+    align-content: center;
+    height:600px;
+    width:800px;
+}
+#team-shooting-chart{
+    text-align: center;
+}
+
+svg#chart-area{
+    padding-left:50px;
+    padding-top:50px;
+
+}
+svg#chart-area2{
+    padding-left:25px;
+    padding-top:10px;
+
+}
+
+#radar-chart1 svg{
+    /*padding-left:20px;*/
+    padding-top:20px;
+    left: 5%;
+    -webkit-transform: translateX(-5%);
+    -ms-transform: translateX(-5%);
+    transform: translateX(-5%);
+}
+#radar-chart2 svg{
+    padding-top:20px;
+    left: 20%;
+    -webkit-transform: translateX(-20%);
+    -ms-transform: translateX(-20%);
+    transform: translateX(-20%);
+}
+
+/*For test*/
+/*
+#selection3,#selection4{
+    display: none;
+}
+*/
+#select1, #select2{
     width: 268px;
     padding: 5px;
     font-size: 16px;
     line-height: 1;
+    border: 1px;
     border-radius: 0;
     height: 34px;
     background-color: transparent;
@@ -38,16 +354,245 @@ stroke-width: 1px;
 }
 
 
-/* vis1 1*/
+.player-div{
+    text-align:center;
+}
+.player-img-wrapper{
+    position: relative;
+    width:100px;
+    height:100px;
+    border-radius: 50%;
+    border:2px solid #26282A;
+}
+
+#player1-info{
+    left:200px;
+}
+
+
+#player1-wrapper,#player2-wrapper{
+    width:160px;
+    height: 160px;
+    padding-top:20px;
+    display:block;
+}
+.player1-teammate-wrapper,.player2-teammate-wrapper{
+    opacity: 0;
+
+}
+
+#player1-wrapper,#player2-wrapper:hover{
+    cursor: pointer;
+}
+
+
+#player1-teammate-wrapper1{
+    top:-260px;
+}
+#player1-teammate-wrapper2{
+    top:-280px;
+    left:-100px;
+}
+#player1-teammate-wrapper3{
+    top:-260px;
+    left:-100px;
+}
+#player1-teammate-wrapper4{
+    top:-300px;
+}
+
+#player2-teammate-wrapper1{
+    top:-260px;
+    right:-50px;
+}
+#player2-teammate-wrapper2{
+    top:-280px;
+    right:-160px;
+}
+#player2-teammate-wrapper3{
+    top:-260px;
+    right:-160px;
+}
+#player2-teammate-wrapper4{
+    top:-300px;
+    right:-50px;
+}
+
+#player1-img,#player2-img{
+    width:160px;
+    height:auto;
+    border-radius:100%;
+    display:block;
+}
+
+#player2-img {
+    left:40px;
+}
+
+
+.teammate{
+    width: 100px;
+    height: auto;
+    border-radius:100%;
+}
+
+.player1-teammate{
+    display:block;
+}
+/* Shooting legend
+
+text.shooting_legend{
+    font-size:10px;
+} */
+
+/*Tutorials*/
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    height: 100%;
+    width: 0%;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    /*background-color: rgb(0,0,0);  Black fallback color */
+    background-color: rgba(0,0,0, 0.7); /* Black w/opacity */
+    overflow-y: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+.overlay-content {
+    position: relative;
+    top:25%;
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+.overlay-content h1,h2,h3,p,span{
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.tutorial-text{
+    font-size:18px;
+    word-wrap: break-word;
+}
+
+#tutorial-step-1{
+    text-align: center;
+}
+
+.tutorial-btn{
+    width:150px;
+    height:60px;
+    background-color: Transparent;
+    color:#FFFFFF;
+    text-align: center;
+    font-weight: 500;
+    font-size:24px;
+    font-family: 'Roboto', sans-serif;
+    border: 2px solid #FFFFFF;
+}
+
+.tutorial-btn:hover{
+
+}
+
+.tutorial-btn:active,.tutorial-btn:focus{
+    outline: 0;
+}
+
+.tutorial-step-div{
+    display:none;
+}
+
+#tutorial-step-1{
+    display: block;
+}
+
+#tutorial-step-4{
+     position: relative;
+     top:100px;
+ }
+
+
+#tutorial-step-6{
+    position: relative;
+    top:300px;
+}
+
+#tutorial-step-7{
+    position: relative;
+    top:300px;
+}
+#tutorial-step-8{
+    position: relative;
+    top:300px;
+}
+
+
+.expose{
+    possition:relative;
+    z-index:9;
+}
+
+#btn-step-9{
+    display: none;
+}
+
+
+#tutorial-step-12{
+    position: relative;
+    top:280px;
+}
+
+
+
+.closebtn{
+    position: absolute;
+    top:80px;
+    right:50px;
+    background-color: Transparent;
+    color:#FFFFFF;
+    border: 2px solid #FFFFFF;
+    border-radius: 100%;
+    text-align: center;
+    width:30px;
+    height:30px
+}
+
+.tutorial-btn:hover {
+    outline: 0;
+    color: #FFFFFF;
+}
+
+
 .d3-tip {
     line-height: 1;
-    font: 16px Arial;
-    padding: 10px;
+    padding: 12px;
     background: rgba(0, 0, 0, 0.8);
     color: #fff;
-    border-radius: 5px;
+    border-radius: 2px;
 }
-#footnote,h4{
-    font-weight: bolder;
-    font: 18px Arial Black;
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
 }
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+
+
+

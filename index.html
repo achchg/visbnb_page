@@ -1,36 +1,417 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <title>Datathon</title>
+    <meta charset="UTF-8">
+    <title>Data behind Champions</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+    <link href="css/d3.basketball-shot-chart.css" rel="stylesheet">
+    <!--    -->
+    <link rel="stylesheet" type="text/css" media="screen" href="http://cdnjs.cloudflare.com/ajax/libs/fancybox/1.3.4/jquery.fancybox-1.3.4.css">
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:900,300' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap-slider.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="css/style.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
 
-<h1 align="center"><b>Risk, Greenness & Diabetes in Boston</b></h1>
-<h3 align="center">by Xindi Hu, Linyan Li, Chi-Hsuan Chang</h3>
-<div class = "container">
-    <div class = "col-md-12" id = "image"></div>
-    <div class = "col-lg-12"><form class="form-inline">
-        <div class="form-group">
-            <label for="ranking-type" id = "label_text"></label>
-            <select class="form-control" id="ranking-type">
-                <option value="NDVI">Greenness</option>
-                <option value="Diabetes">Diabetes Prevalence</option>
-            </select>
+<nav class="navbar navbar-collapse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="nav-header">
+            <a class="navbar-brand" href="#intro">
+                <h1>visBnB</h1>
+            </a>
         </div>
-    </form></div>
+        <div class="collapse navbar-collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a class="page-scroll" href="#intro">Home Page</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#intro" id="tutorial">Tutorials</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#story" id="story-btn">Story Telling</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#player" id="comparison-btn">Player Comparison</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="">Process Book</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#about">About Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-    <div  class = "col-lg-12" id="chart-area"></div>
+<section id="intro" class="intro">
+    <div class="slogan">
+        <h2>Data Behind Champions</h2>
+        <h4>How Did Golden State Warriors Win the Champions?</h4>
+    </div>
+    <div class="page-scroll">
+        <a class="page-scroll section-page-scroll" id="page-scroll-intro" href="#story">
+            <span class="glyphicon glyphicon-menu-down"></span>
+        </a>
+    </div>
+</section>
+<div id="tutorials-mask-div" class="overlay">
+    <button class="closebtn"><span class="glyphicon glyphicon-remove"></span></button>
+    <div class="overlay-content">
+        <div class="tutorial-step-div" id="tutorial-step-1">
+            <h1>Hey there.</h1>
+            <p class="tutorial-text">Welcome to our website.</p>
+            <p class="tutorial-text">Ready for a fun story?</p>
+            <button class="btn tutorial-btn" id="btn-step-1">Let's start</button>
+        </div>
+        <div class="tutorial-step-div" id="tutorial-step-2">
+            <h1>Cheer for the Warriors!</h1>
+            <p class="tutorial-text">No matter who you were rooting for, Golden State Warriors won the NBA champions last year.</p>
+            <p class="tutorial-text">Now, let us show you how well the Warriors played in season 2014-15's playoffs. </p>
+            <p class="tutorial-text">Know your enemy and know yourself. </p>
+            <button class="btn tutorial-btn" id="btn-step-2">Got It</button>
+        </div>
+        <div class="tutorial-step-div" id="tutorial-step-3">
+            <h1>Get to know our web page</h1>
+            <p class="tutorial-text">This page shows the stats of each match the Warriors played in the playoff stage.</p>
+            <button class="btn tutorial-btn" id="btn-step-3">Next</button>
+        </div>
+        <div class="tutorial-step-div" id="tutorial-step-4">
+            <div class="tutorial-location-div" id="location-div-1">
+                <h1>What do these graphs mean?</h1>
+                <p class="tutorial-text">This court chart shows the locations both teams attempted to shoot in the match:</p>
+                <ul>
+                    <li>
+                        <p class="tutorial-text">Darker hexagons represent successful shots. </p>
+                    </li>
+                    <li>
+                        <p class="tutorial-text">Lighter hexagons represent missed shots. </p>
+                    </li>
+                </ul>
+
+                <a href="#team-trad-bar-chart" class="page-scroll"><button class="btn tutorial-btn" id="btn-step-4">Next</button></a>
+            </div>
+        </div>
+        <div class="tutorial-step-div" id="tutorial-step-5">
+            <div class="tutorial-location-div" id="location-div-2">
+                <h1>What do these graphs mean?</h1>
+                <p class="tutorial-text">This bar chart shows the boxscore of the two teams</p>
+                <a href="#story" class="page-scroll"><button class="btn tutorial-btn" id="btn-step-5">Next</button></a>
+            </div>
+        </div>
+        <div class="tutorial-step-div" id="tutorial-step-6">
+            <h1>How to select a playoff stage?</h1>
+            <p class="tutorial-text">
+                You can drag the slider bar on the top.
+            </p>
+            <button class="btn tutorial-btn" id="btn-step-6">Have a Try</button>
+        </div>
+        <div class="tutorial-step-div" id="tutorial-step-7">
+            <h1>Excellent!</h1>
+            <p class="tutorial-text">
+                You have already changed the stage. Now have a look at how to choose a certain match.
+            </p>
+            <button class="btn tutorial-btn" id="btn-step-7">Take a Look</button>
+        </div>
+        <div class="tutorial-step-div" id="tutorial-step-8">
+            <h1>Match buttons</h1>
+            <p class="tutorial-text">The match buttons show the matches in current stage, representing matches in sequence.</p>
+            <p class="tutorial-text">Each stage is supposed to have 7 matches. A team progresses to the next stage by winning 4 games.</p>
+            <p class="tutorial-text">The blue buttons mean the Warriors won these matches.</p>
+            <p class="tutorial-text">Buttons in other colors mean the opposing team won.</p>
+            <p class="tutorial-text">Gray buttons show cancelled matches due to one team winning the stage already.</p>
+            <p class="tutorial-text">The yellow button will give you the overall average boxscore of this stage.</p>
+            <button class="btn tutorial-btn" id="btn-step-8">Show me</button>
+        </div>
+        <div class="tutorial-step-div" id="tutorial-step-9">
+            <h1>Your turn</h1>
+            <p class="tutorial-text">
+                Please click on the highlight button and have a look at the results.
+            </p>
+            <p class="tutorial-text">
+                See how the Warriors beat Houston Rockets in the 3rd match.
+            </p>
+            <button class="btn tutorial-btn" id="btn-step-9"></button>
+        </div>
+
+        <div class="tutorial-step-div" id="tutorial-step-10">
+            <h1>Okay!</h1>
+            <p class="tutorial-text">
+                Now you know how to play around with this part.
+            </p>
+            <p class="tutorial-text">
+                Let's explore next part--player comprison!
+            </p>
+            <button class="btn tutorial-btn" id="btn-step-10">Next part</button>
+        </div>
+        <div class="tutorial-step-div" id="tutorial-step-11">
+            <h1>Player comparison</h1>
+            <p class="tutorial-text">
+                This page shows the stats of two players.
+            </p>
+            <button class="btn tutorial-btn" id="btn-step-11">Next</button>
+        </div>
+        <div class="tutorial-step-div" id="tutorial-step-12">
+            <h1>What do this bar chart mean?</h1>
+            <p class="tutorial-text">This bar chart shows times that both players attempted to shoot in different shot ranges with different shot types in the match:</p>
+
+            <p class="tutorial-text">Colors represent shot type. X axis represents shot range. </p>
+
+            <p class="tutorial-text"> You can click on the x-axis to choose one shot range. You can also click on the legend to
+                choose one shot type. It will automatically show the filtered results. Whenever you want to return to the original
+                stack bar chart, you can just click on the title at the upper right corner of the chart.</p>
+            <button class="btn tutorial-btn" id="btn-step-12">Next</button>
+        </div>
+        <div class="tutorial-step-div" id="tutorial-step-13">
+            <h1>What do these graphs mean?</h1>
+            <p class="tutorial-text">This court chart shows the locations both team attempted to shoot in the match:</p>
+            <ul>
+                <li>
+                    <p class="tutorial-text">The size of hexagons represent the frequency of attempted shot. </p>
+                </li>
+                <li>
+                    <p class="tutorial-text">The color of hexagons represent the efficiency of shots in that location.</p>
+                </li>
+            </ul>
+            <button class="btn tutorial-btn" id="btn-step-13">Next</button>
+        </div>
+        <div class="tutorial-step-div" id="tutorial-step-14">
+            <h1>Most frequent lineups</h1>
+            <p class="tutorial-text">If you click on the images, it will show the most frequent lineups for these players. </p>
+            <button class="btn tutorial-btn" id="btn-step-14">Next</button>
+        </div>
+        <div class="tutorial-step-div" id="tutorial-step-15">
+            <h1>What do these radar charts mean?</h1>
+            <p class="tutorial-text">These charts show players' performance in six fields.</p>
+            <button class="btn tutorial-btn" id="btn-step-15">Next</button>
+        </div>
+        <div class="tutorial-step-div" id="tutorial-step-16">
+            <h1>Done!</h1>
+            <p class="tutorial-text">
+                Now you know how to play around with our webpage.
+            </p>
+            <p class="tutorial-text">
+                Let's explore now!
+            </p>
+            <a href="#story" class="page-scroll"><button class="btn tutorial-btn" id="btn-step-16">Explore!</button></a>
+        </div>
+
+    </div>
 </div>
+<section id="story">
+    <div class="section-head">
+        <h3 id="title-1">How Did Golden State Warriors Win the Playoffs?
+        </h3>
+        <div class = "container" id = "story_start_text">
+            <br>
+            <h6>Golden state warriors are the Champions of NBA in 2014-15 season. Congratulations to them!</h6>
+            <h6>Some professional commenters think the warriors are leading the League to a new stage, for their innovative strategy of making good use of three-point shots. They pay less attention to mid-range shots (8-24 feet) and more focus on three-point shots and under-basket shots.</h6>
+            <h6>Have a look at the playoff matches they played in last season and notice the score distance distribution of both teams.</h6></div>
+    </div>
 
+    <div class="chart-container">
+        <p id="timeline-label">Playoff Stage</p>
+        <div class="timeline-chart" id="team-timeline-chart">
 
-<script src="js/d3.v3.min.js" charset="utf-8"></script>
-<script src="js/topojson.v1.min.js"></script>
-<script src="js/queue.v1.min.js"></script>
+            <input id="timeline" type="text"
+
+                   data-provide="slider"
+                   data-slider-ticks="[1, 2, 3, 4]"
+                   data-slider-ticks-labels='["Stage 1", "Stage 2", "Stage 3", "Stage 4"]'
+                   data-slider-min="1"
+                   data-slider-max="4"
+                   data-slider-step="1"
+                   data-slider-value="1"
+                   data-slider-tooltip="hide" />
+
+        </div>
+        <br>
+        <div class="row">
+            <p id="timeline-label1">Match</p>
+            <button type="button" class="btn match-button" id="match-overall" title="Overall">All</button>
+            <button type="button" class="btn match-button" id="match1" title="Match 1">1</button>
+            <button type="button" class="btn match-button" id="match2" title="Match 2">2</button>
+            <button type="button" class="btn match-button" id="match3" title="Match 3">3</button>
+            <button type="button" class="btn match-button" id="match4" title="Match 4">4</button>
+            <button type="button" class="btn match-button" id="match5" title="Match 5">5</button>
+            <button type="button" class="btn match-button" id="match6" title="Match 6">6</button>
+            <button type="button" class="btn match-button" id="match7" title="Match 7">7</button>
+        </div>
+        <br>
+        <div class = "container" id = "story_team">
+            <h6 id = "change_stage_text_onclick"></h6>
+            <h6 id = "change_match_text_onclick"></h6>
+        </div>
+        <a class="page-scroll section-page-scroll" id="page-scroll-story" href="#player">
+            <span class="glyphicon glyphicon-collapse-down"></span>
+        </a>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-left" id="team1-div">
+                    <img id="team1-img" class="team-img" src="img/1610612744.png"/>
+                    <h3 class="team-title" id="team1-title">Golden State Warriors</h3>
+                    <div class="score-div" id="score-div-1"></div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="shooting-chart" id="team-shooting-chart">
+                        <svg id="chart-area2" width = "2" height="2"></svg>
+                        <h6 id = "summary-text">
+                        </h6>
+                    </div>
+                    <h3 id="stat-title"></h3>
+                    <div class="bar-chart" id="team-trad-bar-chart">
+                        <!--  team stat bar chart here -->
+                        <svg></svg>
+                    </div>
+                </div>
+                <div class="col-lg-2" id="team2-div">
+                    <img class="team-img" id="team2-img"/>
+                    <h3 class="team-title" id="team2-title"></h3>
+                    <div class="score-div" id="score-div-2"></div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <div class="page-scroll">
+
+    </div>
+</section>
+<section id="player">
+    <div class="section-head">
+        <h3>How Sharp is Golden State Warriors' Blade?</h3>
+        <br>
+    </div>
+    <div class="chart-container">
+        <div class="container-fluid">
+            <form class="form-inline">
+                <div class = "container">
+                    <div class = "col-md-6" id = "selection1"></div>
+                    <div class = "col-md-6" id = "selection2"></div>
+                </div>
+            </form>
+            <br>
+            <div class="row">
+                <div class="col-lg-2 player-div" id="player1-info">
+                    <div class="player-img-wrapper" id="player1-wrapper">
+                        <img id="player1-img"/>
+                    </div>
+                    <div class="player-img-wrapper player1-teammate-wrapper" id="player1-teammate-wrapper1">
+                        <img class="teammate player1-teammate" id="player1-teammate-1"/>
+                    </div>
+                    <div class="player-img-wrapper player1-teammate-wrapper" id="player1-teammate-wrapper2">
+                        <img class="teammate player1-teammate" id="player1-teammate-2"/>
+                    </div>
+                    <div class="player-img-wrapper player1-teammate-wrapper" id="player1-teammate-wrapper3">
+                        <img class="teammate player1-teammate" id="player1-teammate-3"/>
+                    </div>
+                    <div class="player-img-wrapper player1-teammate-wrapper" id="player1-teammate-wrapper4">
+                        <img class="teammate player1-teammate" id="player1-teammate-4"/>
+                    </div>
+                    <div class="radar-chart" id="player-radar-chart">
+                        <div id="radar-chart1"></div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="bar-chart" id="stack-chart-area"></div>
+                    <svg id="chart-area" width = "2" height="2"></svg>
+                    <div class="shooting-chart" id="player-shooting-chart">
+                        <svg id="chart-area" width = "2" height="2"></svg>
+                    </div>
+                </div>
+                <div class="col-lg-2 player-div" id="player2-info">
+                    <div class="player-img-wrapper" id="player2-wrapper">
+                        <img id="player2-img"/>
+                    </div>
+                    <div class="player-img-wrapper player2-teammate-wrapper" id="player2-teammate-wrapper1">
+                        <img class="teammate player2-teammate" id="player2-teammate-1"/>
+                    </div>
+                    <div class="player-img-wrapper player2-teammate-wrapper" id="player2-teammate-wrapper2">
+                        <img class="teammate player2-teammate" id="player2-teammate-2"/>
+                    </div>
+                    <div class="player-img-wrapper player2-teammate-wrapper" id="player2-teammate-wrapper3">
+                        <img class="teammate player2-teammate" id="player2-teammate-3"/>
+                    </div>
+                    <div class="player-img-wrapper player2-teammate-wrapper" id="player2-teammate-wrapper4">
+                        <img class="teammate player2-teammate" id="player2-teammate-4"/>
+                    </div>
+                    <div class="radar-chart" id="player-radar-chart2">
+                        <div id="radar-chart2"></div>
+                    </div>
+                </div>
+            </div>
+            <a class="page-scroll section-page-scroll" id="page-scroll-player" href="#about">
+                <span class="glyphicon glyphicon-collapse-down"></span>
+            </a>
+        </div>
+    </div>
+    </div>
+    <div class="page-scroll">
+
+    </div>
+</section>
+<section id="about">
+    <div class="section-head">
+        <h3>About Us</h3>
+        <br>
+    </div>
+
+    <div class="border row">
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <img src="img/Zhuyun.png" width="200" height="230" class="right">
+        </div>
+        <div class="col-md-2">
+            <img src="img/HJ.png" width="200" height="230" class="center">
+        </div>
+        <div class="col-md-2">
+            <img src="img/Chi-suan.png" width="200" height="230" class="center">
+        </div>
+        <div class="col-md-2">
+            <img src="img/Yufei.png" width="200" height="230" class="center">
+        </div>
+
+    </div>
+    <div class="page-scroll">
+        <a class="page-scroll section-page-scroll" id="page-scroll-aboutus" href="#intro">
+            <span class="glyphicon glyphicon-menu-up"></span>
+        </a >
+    </div>
+</section>
+<embed src="data/screencast.swf"></embed>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/queue.min.js"></script>
+<script src="js/colorbrewer.js"></script>
+<script src="js/scrolling-nav.js"></script>
+<script src="js/d3.min.js"></script>
 <script src="js/d3.tip.js"></script>
-<script src="js/main_census.js"></script>
+<script src="js/global.js"></script>
+<script src="js/d3.chart.js"></script>
+<script src="js/d3.chart.defaults.js"></script>
+<script src="js/basketball_court.js"></script>
+<script src="js/basketball_court_team.js"></script>
+<script src="js/hexbin.js"></script>
+<script src="js/hexagon.js"></script>
+<script src="js/hexagon_team.js"></script>
+<script src="js/RadarChart.js"></script>
+<script src="js/script.js"></script>
+<script src="js/traditional_stat_barchart.js"></script>
+<script src="js/bootstrap-slider.js"></script>
+<script src="js/stack_bar.js"></script>
+<script src="js/main.js"></script>
+<script src="js/tutorials.js"></script>
+<script src="js/teammates.js"></script>
 </body>
 </html>
