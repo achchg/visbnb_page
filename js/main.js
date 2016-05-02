@@ -101,8 +101,7 @@ function afterBtnClickUpdate(gameid){
 //load stat bar chart data
 queue()
     .defer(d3.csv,"data/gamelog_average.csv")
-    .defer(d3.csv,"data/story.csv")
-    .await(function(error, data1, data2){
+    .await(function(error, data1){
         data1.forEach(function(d){
             if (error) throw error;
             // Convert numeric values to 'numbers'
@@ -121,9 +120,6 @@ queue()
             d.tov_y=+d.tov_y;
             d.pts_y=+d.pts_y;
         });
-        for(var i = 0; i<data2.length; i++){
-            data1[i].story= data2[i].story;
-        }
         allStat=data1;
         statDataFlag=true;
         displayScore();

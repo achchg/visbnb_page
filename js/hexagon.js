@@ -140,16 +140,7 @@ function loadData(){
         playerid=data.filter(function(d){return d.player_name==selectValue2});
         d3.select("#player2-img").attr("src","http://stats.nba.com/media/players/230x185/"+playerid[0].person_id+".png");
         updateTeammateData(playerid[0].person_id,2);
-        /*
-        d3.csv("data/playerid.csv", function(error, csv) {
-            //"http://stats.nba.com/media/players/230x185/"+playerid+".png"
-            playerids=csv;
-            var playerid=playerids.filter(function(d){return d.player_name==selectValue});
-            d3.select("#player1-img").attr("src","http://stats.nba.com/media/players/230x185/"+playerid[0].player+".png");
-            playerid=playerids.filter(function(d){return d.player_name==selectValue2});
-            d3.select("#player2-img").attr("src","http://stats.nba.com/media/players/230x185/"+playerid[0].player+".png");
-        });
-*/
+
         data_update = data.filter(player_filter);
         data_update2 = data.filter(player_filter2);
 
